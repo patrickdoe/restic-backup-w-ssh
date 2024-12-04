@@ -1,0 +1,14 @@
+[Unit]
+Description=Run Restic Backup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Environment="RESTIC_PASSWORD=vmtest1"
+ExecStart=/home/patrickdoe/restic_backup.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
